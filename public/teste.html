@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="icon" href="assets/icon/favicon2.ico">
+    <script src="../js/sessao.js"></script>
+</head>
+<body>
+
+teste botão curtida
+<div><img id="foto" src="./assets/imgs/20230715_223920000_iOS.jpg" alt=""></div>
+
+<button id="botao-curtir" onclick="curtir()">curtir</button>
+    
+</body>
+</html>
+
+
+<script>
+
+    function curtir(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var fotoSrc = document.getElementById('foto').getAttribute('src');
+
+        fetch(`/curtidas/curtir/${idUsuario}`,{
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ foto: fotoSrc })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log("resposta: ", resposta);
+                return resposta.json();
+
+    }
+    }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    }
+
+</script>

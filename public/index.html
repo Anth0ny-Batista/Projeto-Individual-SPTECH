@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memories | Página Inicial</title>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="assets/icon/favicon2.ico">
+    <script src="./js/sessao.js"></script>
+    <script src="./js/geradorDeFotos.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body onload="listar()">
+    <div class="header">
+      <div class="container">
+        <h1 class="titulo">MEMORIES</h1>
+        <ul class="navbar">
+          <li class="agora">
+            <a href="#">Inicial</a>
+          </li>
+          <li>|</li>
+          <li>
+            <a href="login.html">
+            <div class="redEntrar">
+              Entrar
+            </div>
+          </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="banner efeito-vidro">
+      <div class="container">
+        <p>Trazendo a <span>Memória</span> aquilo que te traz <span>Esperança</span>.</p>
+      </div>
+    </div>
+  
+  
+    <div class="social">
+      <div class="container efeito-vidro">       
+        <div class="box">
+          <h1>Olá, meu nome é Anthony!</h1><br>
+          <p>Este é o meu portfólio de fotografia, fruto de uma paixão que nasceu em meio a desafios e se transformou em propósito.  <br><br>
+            Espero que sua experiência por aqui seja marcante, assim como cada clique é para mim.<br>
+            Sinta-se à vontade para explorar, curtir e favoritar as fotos que mais tocarem o seu coração.<br>
+            Sua interação me ajuda a crescer e entender o que realmente emociona quem vê.<br>
+            Que cada imagem aqui possa trazer à memória aquilo que nos traz esperança!</p>           
+        </div>
+        <div class="box1">           
+        </div>
+      </div>
+    </div>
+    <br><br><br><br>
+
+
+  <div class="swiper mySwiper efeito-vidro">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img id="foto1" src="" />
+      </div>
+      <div class="swiper-slide">
+        <img id="foto2" src="" />
+      </div>
+      <div class="swiper-slide">
+        <img id="foto3" src="" />
+      </div>
+      <div class="swiper-slide">
+        <img id="foto4" src="" />
+      </div>
+      <div class="swiper-slide">
+        <img id="foto5" src="" />
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+    <div class="footer">
+      <div class="container">
+        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2025</h4>
+        <span class="version">v1.0.0</span>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+
+<script type="module">
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+
+var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      centerInsufficientSlides: true,
+      slidesPerView: 3,
+      coverflowEffect: {
+        rotate: 40,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+
+
+window.listar = listar;
+</script>
