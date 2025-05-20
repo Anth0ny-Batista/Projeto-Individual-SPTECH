@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Memories | Portifolio - Casamentos</title>
+
+  <link rel="stylesheet" href="./css//AlbumCs.css">
+  <link rel="icon" href="assets/icon/favicon2.ico">
+  <script src="./js/sessao.js"></script>
+  <script src="./js/curtida.js"></script>
+  <script src="./js/geradorDeFotos.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body onload="listaCasamento();">
+<div class="header">
+    <div class="container">
+      <h1 class="titulo">MEMORIES</h1>
+      <ul class="navbar">
+        <li>
+          <a href="./albunsRed.html">Álbuns</a>
+        </li>
+        <li>|</li>
+        <li class="agora">
+          <a>Casamentos</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="./curtidasUser.html">Fotos Curtidas</a>
+        </li>
+        <li>|</li>
+        <li>
+          <div class="blocoUser">
+            <div class="navbarUser"><a id="userSession"></a></div>
+            <div class="navbarlogout"><span onclick="limparSessao()" class="txtLogout"><a>Logout</a></span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="banner efeito-vidro">
+    <div class="container">
+      <p><span>Casamentos</span></p>
+    </div>
+  </div>
+  </div>
+  <br><br>
+  <div id="div_mensagem" class="galeria">
+
+                      <!-- <div class="fotoContainer" data-id-foto="${idFoto}">
+                         <div>
+                            <div class="foto"><img src="${fotoAleatoria}" alt=""></div>
+                          </div>
+                          <div class="LIKE"> 
+                            <button class="botaoCurtida" data-curtido="false" onclick="curtirOuDescurtir(this)"></button>
+                          </div>
+                      </div> -->
+
+  </div>
+
+
+  <div class="footer">
+    <div class="container">
+      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2025</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<script type="module">
+  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+
+  var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    centerInsufficientSlides: true,
+    slidesPerView: 3,
+    coverflowEffect: {
+      rotate: 40,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+
+</script>
+
+<script>
+  validarSessao();
+
+</script>

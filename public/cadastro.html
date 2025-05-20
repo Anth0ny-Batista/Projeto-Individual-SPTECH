@@ -52,18 +52,6 @@
               <input id="input_sobreNome" type="text" placeholder="Seu nome" />
             </div>
             <div class="campo">
-              <span>Data de Nascimento:</span>
-              <input id="input_dtNascimento" type="date" max="2025-05-12" />
-            </div>
-            <div class="campo">
-              <span>Sexo:</span>
-              <select id="select_sexo">
-                <option value="#">Selecione seu Sexo:</option>
-                <option value="F">F</option>
-                <option value="M">M</option>
-              </select>
-            </div>
-            <div class="campo">
               <span>Email:</span>
               <input id="input_email" type="text" placeholder="anthony@" oninput="validarEmail()" />
             </div>
@@ -135,8 +123,6 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = input_nome.value;
     var sobreNomeVar = input_sobreNome.value;
-    var dtNascimentoVar = input_dtNascimento.value;
-    var sexoVar = select_sexo.value;
     var emailVar = input_email.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
@@ -145,8 +131,6 @@
     if (
       nomeVar == "" ||
       sobreNomeVar == "" ||
-      dtNascimentoVar == "" ||
-      sexoVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
@@ -174,8 +158,6 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         sobreNomeServer: sobreNomeVar,
-        dtNascimentoServer: dtNascimentoVar,
-        sexoServer: sexoVar,
         emailServer: emailVar,
         senhaServer: senhaVar
       }),

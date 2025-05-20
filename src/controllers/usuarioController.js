@@ -20,10 +20,11 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
                         res.json({
-                            id: resultadoAutenticar[0].id,
+                            idUsuario: resultadoAutenticar[0].idUsuario,
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
                                 });
+
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -44,8 +45,6 @@ function autenticar(req, res) {
 function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var sobrenome = req.body.sobreNomeServer;
-    var dtnascimento = req.body.dtNascimentoServer;
-    var sexo = req.body.sexoServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -54,10 +53,6 @@ function cadastrar(req, res) {
         res.status(400).send("Seu nome está undefined!");
     } else if (sobrenome == undefined) {
         res.status(400).send("Seu sobrenome está undefined!");
-    } else if (dtnascimento == undefined) {
-        res.status(400).send("Seu dtnascimento está undefined!");
-    }else if (sexo == undefined) {
-        res.status(400).send("Sua sexo está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
@@ -65,7 +60,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, dtnascimento, sexo, email, senha)
+        usuarioModel.cadastrar(nome, sobrenome, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
