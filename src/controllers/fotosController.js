@@ -36,11 +36,53 @@ function listaCurtidas(req, res) {
     res.status(200).json(resultado);
   });
 }
+
+function topFotos(req, res) {
+  fotosModel.topFotos().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
+function fotosPorCategoria(req, res) {
+  fotosModel.fotosPorCategoria().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
+function fotoMaisCurtida(req, res) {
+  fotosModel.fotoMaisCurtida().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
+function fotoMaisFavoritada(req, res) {
+  fotosModel.fotoMaisFavoritada().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
+function indicadorCurtida(req, res) {
+  fotosModel.indicadorCurtida().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
+function indicadorFavorito(req, res) {
+  fotosModel.indicadorFavorito().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
 module.exports = {
     listar,
     aleatorioCasamento,
     aleatorioPreWedding,
     listaCasamento,
     listaPreWedding,
-    listaCurtidas
+    listaCurtidas,
+    topFotos,
+    fotosPorCategoria,
+    fotoMaisCurtida,
+    fotoMaisFavoritada,
+    indicadorCurtida,
+    indicadorFavorito
 }

@@ -87,8 +87,95 @@ function descurtir(req, res) {
 }
 
 
+function verificarFavorito(req, res) {
+    var idFoto = req.params.idFoto;
+    var idUsuario = req.params.idUsuario;
+
+
+    if (idFoto == undefined) {
+        return res.status(400).send("A foto está indefinida!");
+    } else if (idUsuario == undefined) {
+        res.status(403).send("O id do usuário está indefinido!");
+    } else {
+        curtidaModel.verificarFavorito(idFoto, idUsuario)
+            .then(
+                function (resultado) {
+                    var favoritoExiste = false;      
+                    if (resultado.length > 0){
+                        favoritoExiste = true;
+                    }         
+                                
+                res.json({ favorito: favoritoExiste });
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function favoritar(req, res) {
+    var idFoto = req.body.idFoto;
+    var idUsuario = req.params.idUsuario;
+
+
+    if (idFoto == undefined) {
+        return res.status(400).send("A foto está indefinida!");
+    } else if (idUsuario == undefined) {
+        res.status(403).send("O id do usuário está indefinido!");
+    } else {
+        curtidaModel.favoritar(idFoto, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function desfavoritar(req, res) {
+    var idFoto = req.body.idFoto;
+    var idUsuario = req.params.idUsuario;
+
+
+    if (idFoto == undefined) {
+        return res.status(400).send("A foto está indefinida!");
+    } else if (idUsuario == undefined) {
+        res.status(403).send("O id do usuário está indefinido!");
+    } else {
+        curtidaModel.desfavoritar(idFoto, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
 module.exports = {
     curtir,
     descurtir,
-    verificarCurtida
+    verificarCurtida,
+    favoritar,
+    desfavoritar,
+    verificarFavorito
 }

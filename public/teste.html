@@ -1,48 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="icon" href="assets/icon/favicon2.ico">
-    <script src="../js/sessao.js"></script>
+  <meta charset="UTF-8" />
+  <title>Gráfico de Pizza</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .graficoPizza {
+      max-width: 500px;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
+  <h2>Vendas por Categoria</h2>
+  <div class="graficoPizza">
+    <canvas id="graficoPizza"></canvas>
+  </div>
 
-teste botão curtida
-<div><img id="foto" src="./assets/imgs/20230715_223920000_iOS.jpg" alt=""></div>
+  <script>
+    var ctx = document.getElementById('graficoPizza');
 
-<button id="botao-curtir" onclick="curtir()">curtir</button>
-    
+    const dadosPizza = {
+      labels: ['Eletrônicos', 'Roupas', 'Alimentos', 'Livros', 'Outros'],
+      datasets: [{
+        label: 'Vendas',
+        data: [120, 90, 150, 60, 30],
+        backgroundColor: [
+          '#ff6384',
+          '#36a2eb',
+          '#ffce56',
+          '#4bc0c0',
+          '#9966ff'
+        ],
+        borderColor: '#ffffff',
+        borderWidth: 2
+      }]
+    };
+
+    const configPizza = {
+      type: 'pie',
+      data: dadosPizza,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          },
+        }
+      }
+    };
+
+    const graficoPizza = new Chart(ctx, configPizza);
+  </script>
 </body>
 </html>
-
-
-<script>
-
-
-    function curtir(){
-        var idUsuario = sessionStorage.ID_USUARIO;
-        var fotoSrc = document.getElementById('foto').getAttribute('src');
-
-        fetch(`/curtidas/curtir/${idUsuario}`,{
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ foto: fotoSrc })
-        }).then(function (resposta) {
-
-            if (resposta.ok) {
-                console.log("resposta: ", resposta);
-                return resposta.json();
-
-    }
-    }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-
-    }
-
-</script>

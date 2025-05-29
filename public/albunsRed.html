@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
@@ -30,7 +30,7 @@
           </li>
             <li>|</li>
           <li>
-            <a href="./curtidasUser.html">Fotos Curtidas</a>
+            <a href="./curtidasUser.html">Minha Seleção</a>
           </li>
             <li>|</li>
           <li>
@@ -42,13 +42,37 @@
         </ul>
       </div>
     </div>
-  <div class="img_fundo1">
+
+     <div class="banner1 efeito-vidro">
+    <div class="container">
+      <div class="fraseprincipal">
+        <p>Aqui, você pode explorar meus álbuns de <span>Casamento</span> e <span>"Pré-wedding"</span>. <br> 
+          Você poderá <span>curtir</span> e <span>favoritar</span> fotos e criar sua <span>própria seleção</span> <br> 
+         personalizada para guardar as fotos que você mais gostou.</p> <br>          
+        </div>
+        <div class="frasesub">
+          <p>Comece a <span>curtir</span> escolher a sua <span>favorita</span> agora!</p>
+        </div>
+        <div class="botoesAlbuns">
+        <a href="albumCs.html">
+            <div class="redEntrar1">
+              Álbum Casamento
+            </div>
+          </a>
+          <a href="./dashboard/dashboardll.html">
+            <div class="redEntrar1">
+              Álbum Pré-Wedding
+            </div>
+          </a>
+        </div>
+    </div>
+  </div>
+
     <div class="banner efeito-vidro">
       <div class="container">
         <p><span>Casamentos</span></p>
       </div>
     </div>
-  </div>
     <br><br>
 
     <div class="swiper mySwiper efeito-vidro">
@@ -150,28 +174,49 @@
       </div>
     </div>
   
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2025</h4>
-        <span class="version">v1.0.0</span>
+<div class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section brand">
+        <h2>MEMORIES</h2>
+        <p>Trazendo a <strong>Memória</strong> aquilo que te traz <strong>Esperança</strong>.</p>
+      </div>
+      
+      <div class="footer-section links">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="./curtidasUser.html">Fotos Curtidas</a></li>
+          <li><a href="./albumCs.html">Álbum Casamento</a></li>
+          <li><a href="./albumPw.html">Álbum Pré-Wedding</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contato">
+        <h3>Contato</h3>
+        <p>Email: contato@memories.com</p>
+        <p>Instagram: <a href="" target="_blank">@memories_fotografia</a></p>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 MEMORIES. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</div>
+
   </body>
 
 </html>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script type="module">
-  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
-
-var swiper = new Swiper(".mySwiper", {
+  <script>
+    var swiper = new Swiper(".mySwiper", {
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
-      centerInsufficientSlides: true,
       slidesPerView: 3,
       coverflowEffect: {
-        rotate: 40,
+        rotate: 50,
         stretch: 0,
         depth: 100,
         modifier: 1,
@@ -185,9 +230,7 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
       },
     });
-
-window.listar = listar;
-</script>
+  </script>
 
 <script>
   validarSessao();

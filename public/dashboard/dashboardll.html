@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <aside>
+    <div class="containerNavBar">
+
+      <div class="titulo">MEMORIES</div>
+
+      <div>Álbuns</div>
+      <div>Minha Seleção</div>
+
+ 
+    </div>
+  </aside>
+
+  <main>
+    <section id="containerIndicadores" class="containerIndicadores">
+
+      <div class="efeito-vidro" id="containerIndicadores1"></div>
+    </section>
+
+    <section class="containerMeio">
+      <div id="graficoLinha" class="graficoLinha efeito-vidro">
+
+      </div>
+
+      <div id="legenda" class="legenda efeito-vidro">
+
+      </div>
+
+    </section>
+
+    <section class="containerBaixo">
+      <div class="GraficoTop">
+        <div id="graficoBarra" class="graficoBarra efeito-vidro">
+        </div>
+
+        <div id="containerlegenda">
+          <div id="legendaLinks">
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="legenda1 efeito-vidro">
+        <div id="graficoPizza" class="graficoPizza">
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    window.onload = function () {
+      exibirGraficodeBarra();
+      fotoMaisCurtidaFavorita();
+    };
+
+    var lista_fotoMaisCurtida = []
+    var lista_fotoMaisFavoritada = []
+    var lista_indicadorCurtida = []
+    var lista_indicadorFavorito = []
+
+    function fotoMaisCurtidaFavorita() {
+
+      fetch("/fotos/fotoMaisCurtida", {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((fotos) => {
+            lista_fotoMaisCurtida = fotos;
+
+            var mensagem = ""
+            var fotoMaisCurtida1 = lista_fotoMaisCurtida[0].caminhoFoto;
+            var numeroCurtidas = lista_fotoMaisCurtida[0].contagemCurtidas;
+
+            mensagem += `Foto mais curtida ❤️${numeroCurtidas}
+                      <img src="${fotoMaisCurtida1}" alt="">`;
+
+            document.getElementById(`graficoLinha`).innerHTML = mensagem;
+
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+
+      fetch("/fotos/fotoMaisFavoritada", {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((fotos1) => {
+            lista_fotoMaisFavoritada = fotos1;
+
+            var mensagem1 = ""
+            var fotoMaisFavoritada1 = lista_fotoMaisFavoritada[0].caminhoFoto;
+            var numeroFavoritos = lista_fotoMaisFavoritada[0].contagemfavoritos;
+
+            mensagem1 += `Foto mais favoritada ⭐${numeroFavoritos}
+                      <img src="${fotoMaisFavoritada1}" alt="">`;
+
+            document.getElementById(`legenda`).innerHTML = mensagem1;
+
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      fetch("/fotos/indicadorCurtida", {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((fotos2) => {
+            lista_indicadorCurtida = fotos2;
+
+            var mensagem2 = ""
+            var numeroCurtidas1 = lista_indicadorCurtida[0].contagemCurtidas;
+
+            mensagem2 += `<div class="indicador1">Quantidade total de curtidas: ${numeroCurtidas1}</div>      
+                        `;
+
+            document.getElementById(`containerIndicadores1`).innerHTML = mensagem2;
+
+
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+
+      fetch("/fotos/indicadorFavorito", {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((fotos3) => {
+            lista_indicadorFavorito = fotos3;
+
+            var mensagem3 = ""
+            var numeroFavoritos1 = lista_indicadorFavorito[0].contagemFavoritos;
+
+            mensagem3 += `<div class="indicador efeito-vidro">Quantidade total de Favoritos: ${numeroFavoritos1}</div>      
+                        `;
+
+            document.getElementById(`containerIndicadores`).innerHTML += mensagem3;
+
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+
+    }
+
+
+    function exibirGraficodeBarra() {
+
+      document.getElementById("graficoBarra").innerHTML += `
+            
+            <h3 class="tituloGraficos">
+              <span id="tituloGráficoBarra">Top 5 fotos mais curtidas</span>
+              </h3>
+              <div class="graph">
+                <canvas id="graficoTopCurtidas" width="650px" height="250px"></canvas>
+                </div>
+                
+                `
+      document.getElementById("graficoPizza").innerHTML += `
+            
+            <h3 class="tituloGraficos1">
+              <span id="tituloGráficoBarra1">Total de Curtidas por categoria</span>
+              </h3>
+              <div class="graph1">
+                <canvas id="graficoPizzaCategorias"width="100px" height="280px"></canvas>
+                </div>
+                
+                `
+      obterDadosGraficoBarra();
+      obterDadosGraficoPizza();
+
+    }
+
+    var lista_topFotos = []
+
+
+    function obterDadosGraficoBarra() {
+
+      fetch(`/fotos/topFotos`, {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((fotos) => {
+            lista_topFotos = fotos;
+
+            console.log("lista_topFotos");
+            console.log(lista_topFotos[0].contagemCurtidas);
+
+            plotarGraficoBarra(lista_topFotos);
+
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        })
+    }
+
+
+    var lista_Categoria = []
+
+    function obterDadosGraficoPizza() {
+
+      fetch(`/fotos/fotosPorCategoria`, {
+        method: "GET",
+      })
+        .then(function (resposta) {
+          resposta.json().then((fotos) => {
+            lista_Categoria = fotos;
+
+            plotarGraficoPizza(lista_Categoria);
+
+          });
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        })
+    }
+
+
+
+
+    function plotarGraficoBarra(resposta) {
+
+      console.log('iniciando plotagem do gráfico...');
+
+      // Criando estrutura para plotar gráfico - labels
+      let labels = ["Top 1", "Top 2", "Top 3", "Top 4", "Top 5",];
+
+      // Criando estrutura para plotar gráfico - dados
+      let dados = {
+        labels: labels,
+        datasets: [{
+          label: 'Número de Curtidas',
+          data: [],
+          backgroundColor: [
+            '#FF0015',
+            '#970700'
+          ],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      };
+
+      console.log('----------------------------------------------')
+      console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+      console.log(resposta)
+
+      // Inserindo valores recebidos em estrutura para plotar o gráfico
+      for (i = 0; i < 5; i++) {
+        var registro = resposta[i];
+        dados.datasets[0].data.push(registro.contagemCurtidas);
+      }
+
+      console.log('----------------------------------------------')
+      console.log('O gráfico será plotado com os respectivos valores:')
+      console.log('Labels:')
+      console.log(labels)
+      console.log('Dados:')
+      console.log(dados.datasets)
+      console.log('----------------------------------------------')
+
+      // Criando estrutura para plotar gráfico - config
+      const config = {
+        type: 'bar',
+        data: dados,
+      };
+
+      // Adicionando gráfico criado em div na tela
+      let myChart = new Chart(
+        document.getElementById(`graficoTopCurtidas`),
+        config
+      );
+
+      const legendaDiv = document.getElementById("legendaLinks");
+      legendaDiv.innerHTML = ""; // Limpa se já existia
+
+      for (var k = 0; k < 5; k++) {
+        var foto = resposta[k];
+        var numeroTop = k + 1;
+
+        var link = document.createElement("a");
+        link.href = foto.caminhoFoto; // Substitua por sua propriedade correta
+        link.target = "_blank";
+        link.innerText = `Top ${numeroTop}`;
+        link.style.margin = "0 10px";
+
+        legendaDiv.appendChild(link);
+      }
+
+    }
+
+
+    function plotarGraficoPizza(resposta) {
+
+      // Criando estrutura para plotar gráfico - labels
+      let labels = [];
+
+      // Criando estrutura para plotar gráfico - dados
+      let dados = {
+        labels: labels,
+        datasets: [{
+          label: 'Quantidade de Curtidas',
+          data: [],
+          backgroundColor: [
+            '#5e4c34',
+            '#a97e52'
+          ],
+          borderColor: '#ffffff',
+          borderWidth: 2
+        }]
+      }
+
+
+      for (i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        labels.push(registro.nomeCategoria);
+        dados.datasets[0].data.push(registro.contagemCurtidas);
+      }
+
+      const configPizza = {
+        type: 'pie',
+        data: dados,
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            },
+          }
+        }
+      };
+
+      var graficoPizza = new Chart(
+        document.getElementById('graficoPizzaCategorias'),
+        configPizza
+      );
+
+
+    }
+
+
+  </script>
+</body>
+
+</html>

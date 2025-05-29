@@ -14,10 +14,10 @@ function verificarCurtida() {
             headers: { "Content-Type": "application/json" },
 
         }).then(res => res.json())
-            .then(curtida => {
-                console.log('Curtida: recebida:',curtida)
-                
-                if (curtida.curtida) {
+            .then(validacaoCurtida => {
+                console.log('Curtida: recebida:', validacaoCurtida)
+
+                if (validacaoCurtida.curtida == true) {
                     botaoCurtida.dataset.curtido = "true";
                     var imagem = botaoCurtida.querySelector("img");
                     imagem.src = "./assets/coracao-preenchido.png";
@@ -71,6 +71,112 @@ function curtirOuDescurtir(botaoCurtida) {
                 botaoCurtida.dataset.curtido = "true";
                 var imagem = botaoCurtida.querySelector("img");
                 imagem.src = "./assets/coracao-preenchido.png";
+            }
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+}
+
+
+async function verificarFavorito() {
+    var containers = document.querySelectorAll('.fotoContainer');
+    var jaTemFavorito = false;
+
+    // verificar se já existe um favorito
+    for (var i = 0; i < containers.length; i++) {
+        var container = containers[i];
+        var idFoto = container.dataset.idFoto;
+
+        var resposta = await fetch(`/curtidas/verificarFavorito/${idUsuario}/${idFoto}`,
+            {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            });
+
+        var resultado = await resposta.json();
+        console.log('Favorito recebido:', resultado)
+
+        if (resultado.favorito === true) {
+            jaTemFavorito = true;
+            break; 
+        }
+    }
+
+    for (var i = 0; i < containers.length; i++) {
+        var container = containers[i];
+        var idFoto = container.dataset.idFoto;
+        var botaofavorito = container.querySelector('.botaofavorito');
+        var img = botaofavorito.querySelector('img');
+
+        var resposta = await fetch(`/curtidas/verificarFavorito/${idUsuario}/${idFoto}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        var resultado = await resposta.json();
+
+        if (resultado.favorito === true) {
+            botaofavorito.dataset.favorito = "true";
+            img.src = "./assets/estrela-preenchida.png";
+            botaofavorito.style.cursor = 'pointer';
+            botaofavorito.style.pointerEvents = 'auto';
+        } else {
+            botaofavorito.dataset.favorito = "false";
+            img.src = "./assets/estrela-sem-preenchimento.png";
+
+            if (jaTemFavorito) {
+                botaofavorito.style.cursor = 'not-allowed';
+                botaofavorito.style.pointerEvents = 'none';
+            } else {
+                botaofavorito.style.cursor = 'pointer';
+                botaofavorito.style.pointerEvents = 'auto';
+            }
+        }
+    }
+}
+
+function favoritarOuDesfavoritar(botaofavorito) {
+    var container = botaofavorito.closest('.fotoContainer');
+    var idFoto = container.dataset.idFoto;
+    var favorito = botaofavorito.dataset.favorito;
+
+    if (favorito == "true") {
+
+        fetch(`/curtidas/desfavoritar/${idUsuario}`, {
+            method: "DELETE",
+
+            headers: { "Content-Type": "application/json" },
+
+            body: JSON.stringify({ idFoto: idFoto })
+
+        }).then(res => {
+            ''
+            if (res.ok) {
+                botaofavorito.dataset.favorito = "false";
+                var imagem = botaofavorito.querySelector("img");
+                imagem.src = "./assets/estrela-sem-preenchimento.png";
+                verificarFavorito();
+            }
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    } else {
+
+        fetch(`/curtidas/favoritar/${idUsuario}`, {
+            method: "POST",
+
+            headers: { "Content-Type": "application/json" },
+
+            body: JSON.stringify({ idFoto: idFoto })
+
+        }).then(res => {
+            if (res.ok) {
+                botaofavorito.dataset.favorito = "true";
+                var imagem = botaofavorito.querySelector("img");
+                imagem.src = "./assets/estrela-preenchida.png";
+                verificarFavorito();
             }
         })
             .catch(function (resposta) {

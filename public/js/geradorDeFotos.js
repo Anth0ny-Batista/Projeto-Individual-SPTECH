@@ -95,17 +95,21 @@ function listaCasamento() {
         for (var i = 0; i < lista_fotos2.length; i++) {
           var fotoAleatoria = lista_fotos2[i].caminhoFoto;
           var idFoto = lista_fotos2[i].idFoto;
-          mensagem += `<div class="fotoContainer" data-id-foto="${idFoto}">
+          mensagem += `<div class="fotoContainer efeito-vidro" data-id-foto="${idFoto}">
                          <div>
                             <div class="foto"><img src="${fotoAleatoria}" alt=""></div>
                           </div>
                           <div class="LIKE"> 
                             <button class="botaoCurtida" data-curtido="" onclick="curtirOuDescurtir(this)"><img src="" alt=""></button>
+                            <div class="favorito">
+                            <button class="botaofavorito" data-favorito="" onclick="favoritarOuDesfavoritar(this)"><img src="" alt=""></button>
+                            </div>
                           </div>
                       </div>`;
         }
         document.getElementById(`div_mensagem`).innerHTML = mensagem;
         verificarCurtida();
+        verificarFavorito();
       });
     })
     .catch(function (resposta) {
@@ -131,17 +135,21 @@ function listaPreWedding(){
         for (var i = 0; i < lista_fotos3.length; i++) {
           var fotoAleatoria = lista_fotos3[i].caminhoFoto;
           var idFoto = lista_fotos3[i].idFoto;
-          mensagem += `<div class="fotoContainer" data-id-foto="${idFoto}">
+          mensagem += `<div class="fotoContainer efeito-vidro" data-id-foto="${idFoto}">
                          <div>
                             <div class="foto"><img src="${fotoAleatoria}" alt=""></div>
                           </div>
                           <div class="LIKE"> 
                             <button class="botaoCurtida" data-curtido="" onclick="curtirOuDescurtir(this)"><img src="" alt=""></button>
+                            <div class="favorito">
+                            <button class="botaofavorito" data-favorito="" onclick="favoritarOuDesfavoritar(this)"><img src="" alt=""></button>
+                            </div>
                           </div>
                       </div>`;
         }
         document.getElementById(`div_mensagem`).innerHTML = mensagem;
         verificarCurtida();
+        verificarFavorito();
       });
     })
     .catch(function (resposta) {

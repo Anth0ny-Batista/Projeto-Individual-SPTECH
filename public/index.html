@@ -44,7 +44,18 @@
 
   <div class="banner efeito-vidro">
     <div class="container">
-      <p>Trazendo a <span>Memória</span> aquilo que te traz <span>Esperança</span>.</p>
+      <div class="fraseprincipal">
+        <p>Trazendo a <strong>Memória</strong> aquilo que te traz <strong>Esperança</strong>.</p>
+      </div>
+      <hr>
+      <span>Um álbum fotográfico que te faz relembrar da esperança.</span><br>
+      <span>Explore, curta e favorite as fotos que mais tocarem seu coração!</span>
+      <hr><hr>
+        <a href="login.html">
+            <div class="redEntrar1">
+              Explorar Álbuns
+            </div>
+          </a>
     </div>
   </div>
 
@@ -73,12 +84,14 @@
       </div>
     </div>
   </div>
-  <br><br><br><br>
+  <br><br>
 
+  <div class="containertextPorti">
   <div class="textPortifolio efeito-vidro">
     <div class="container">
-      <p><span>Veja um pouco sobre essa esperança:</span></p>
+      <p><span>Algumas lembranças para você explorar:</span></p>
     </div>
+  </div>
   </div>
   <br><br>
 
@@ -103,47 +116,73 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
+<br><br>
 
-
+  <div class="containertextPorti">
   <div class="textPortifolio efeito-vidro">
     <div class="container">
       <p><span>Quer ver todas as fotos? <a href="./login.html">Clique Aqui!</a> </span></p>
     </div>
   </div>
+  </div>
   <br><br>
 
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2025</h4>
-      <span class="version">v1.0.0</span>
+    
+<div class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section brand">
+        <h2>MEMORIES</h2>
+        <p>Trazendo a <strong>Memória</strong> aquilo que te traz <strong>Esperança</strong>.</p>
+      </div>
+      
+      <div class="footer-section links">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="./login.html">Entrar</a></li>
+          <li><a href="./cadastro.html">Criar conta</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contato">
+        <h3>Contato</h3>
+        <p>Email: contato@memories.com</p>
+        <p>Instagram: <a href="" target="_blank">@memories_fotografia</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 MEMORIES. Todos os direitos reservados.</p>
     </div>
   </div>
+</div>
+
 </body>
 
 </html>
 
 
-<script type="module">
-  import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    centerInsufficientSlides: true,
-    slidesPerView: 3,
-    coverflowEffect: {
-      rotate: 40,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
-
-
-  window.listar = listar;
-</script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 3,
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
