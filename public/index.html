@@ -21,7 +21,7 @@
     rel="stylesheet">
 </head>
 
-<body onload="listar()">
+<body onload="listar(); trocarfotos()">
   <div class="header">
     <div class="container">
       <h1 class="titulo">MEMORIES</h1>
@@ -80,7 +80,8 @@
           Que cada imagem aqui possa trazer à memória aquilo que nos dá esperança!
         </p>
       </div>
-      <div class="box1">
+      <div class="box1"> 
+        <img class="imagem" src="" alt="">
       </div>
     </div>
   </div>
@@ -90,7 +91,7 @@
   <div class="button-banner">
   <div class="text-button efeito-vidro">
     <div class="container">
-      <p><span>Algumas lembranças para você explorar:</span></p>
+      <p><span>Algumas fotografias para você explorar:</span></p>
     </div>
   </div>
   </div>
@@ -142,7 +143,6 @@
       <div class="footer-section links">
         <h3>Navegação</h3>
         <ul>
-          <li><a href="/">Início</a></li>
           <li><a href="./login.html">Entrar</a></li>
           <li><a href="./cadastro.html">Criar conta</a></li>
         </ul>
@@ -159,6 +159,7 @@
     </div>
   </div>
 </div>
+<!-- <img src="./assets/imgs/03.jpg" alt=""> -->
 
 </body>
 
@@ -188,4 +189,26 @@
         prevEl: ".swiper-button-prev",
       },
     });
+
+    var lista_fotos_JSON = [
+      {
+        'url':'../assets/imgs/20230715_223832000_iOS.jpg'
+      },
+      {
+        'url':'./assets/imgs/03.jpg'
+      }
+  ]
+
+
+ function trocarfotos(){
+ var boxFotos = document.querySelector('.box1');
+ var imgAnthony = boxFotos.querySelector('img');  
+ imgAnthony.src = lista_fotos_JSON[0].url
+     
+   setInterval(() => {
+     var aleatorio = Math.floor(Math.random() * lista_fotos_JSON.length);
+     imgAnthony.src = lista_fotos_JSON[aleatorio].url
+ }, 3500); 
+
+    }
   </script>

@@ -69,11 +69,11 @@ body {
 .alertaEmail{
   display: none;
   position: absolute;
-  top: 420px;
+  top: 330px;
   left: 610px;
   padding: 5px;
-  width: 245px;
-  height: 40px;
+  width: 280px;
+  height: 65px;
   background-color: var(--branco);
 
  border-radius: 5px;
@@ -81,12 +81,35 @@ body {
 
   text-decoration: none;
   color: red;
-   letter-spacing: 5px;
+   letter-spacing: 2px;
    font-family: "Poppins", sans-serif;
    font-weight: 400;
    font-style: normal;
    font-size: 12px;
 }
+
+.alertaSenha{
+  display: none;
+  position: absolute;
+  top: 450px;
+  left: 610px;
+  padding: 5px;
+  width: 350px;
+  height: 68px;
+  background-color: var(--branco);
+
+ border-radius: 5px;
+  border: 1px solid #000000;
+
+  text-decoration: none;
+  color: red;
+   letter-spacing: 2px;
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 12px;
+}
+
 
 
 
@@ -213,7 +236,7 @@ body {
   display: none;
   background-color: var(--bege);
   color: black;
-  width: 230px;
+  width: 270px;
   position: fixed;
   border-radius: 4px;
   border: #5e4c34 3px solid;

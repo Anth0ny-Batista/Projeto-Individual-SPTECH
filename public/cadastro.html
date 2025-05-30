@@ -33,6 +33,7 @@
         <div>MEMORIES</div>
       </a>
       <div id="div_mensagem" class="alertaEmail"></div>
+      <div id="div_mensagem1" class="alertaSenha"></div>
 
       <div class="container">
         <div class="card2 card-cadastro efeito-vidro-login">
@@ -44,15 +45,15 @@
                      -->
             <div class="campo">
               <span>Nome:</span>
-              <input id="input_nome" type="text" placeholder="Insira aqui seu código" />
+              <input id="input_nome" type="text" placeholder="Nome" />
             </div>
             <div class="campo">
               <span>Sobrenome:</span>
-              <input id="input_sobreNome" type="text" placeholder="Seu nome" />
+              <input id="input_sobreNome" type="text" placeholder="Sobrenome" />
             </div>
             <div class="campo">
               <span>Email:</span>
-              <input id="input_email" type="text" placeholder="anthony@" oninput="validarEmail()" />
+              <input id="input_email" type="text" placeholder="seuemail@gmail.com" oninput="validarEmail()"/>
             </div>
             <div class="campo">
               <span>Senha:</span>
@@ -60,7 +61,7 @@
             </div>
             <div class="campo">
               <span>Confirmação da Senha:</span>
-              <input id="confirmacao_senha_input" type="password" placeholder="******" />
+              <input id="confirmacao_senha_input" type="password" placeholder="******" oninput="validarSenha()"/>
             </div>
             <button class="botao" onclick="cadastrar()">Cadastrar</button>
             <div class="redCadastro1">
@@ -81,53 +82,51 @@
 </html>
 
 <script>
+
+  var cont = 0
+
   function validarEmail() {
-    var email = input_email.value; // troca o nome da input
-    var tamanhoEmail = email.length;
+    var email = input_email.value;
     var mensagem = "";
-    var cont = 0;
 
-    for (var i = 0; i < tamanhoEmail; i++) {
-      var caractereAtual;
-      caractereAtual = email[i];
-
-      if (caractereAtual == '@') {
-        mensagem = '';
-        cont++
-      } else if (caractereAtual != '@' && cont == 0) {
-        mensagem = 'Email Inválido! <br> (Deve conter "." e "@")';
-      }
-
-      if (caractereAtual == '.') {
-        mensagem = '';
-        cont++
-      } else if (caractereAtual != '.' && (cont == 1 || cont == 0)) {
-        mensagem = 'Email Inválido! <br> (Deve conter "." e "@")';
-      }
-    }
-
-    if (email == "" || cont == 2) {
-      document.getElementById('div_mensagem').style.display = 'none';
-    } else {
+    if(!email.includes('.') || !email.includes('@') || !email.includes('gmail.com')){
+      mensagem = `O e-mail inserido não é válido.<br><br> Utilize um endereço do Gmail!`;
       document.getElementById('div_mensagem').style.display = 'block';
+      cont = 0;
+    }else {
+      document.getElementById('div_mensagem').style.display = 'none';
+      cont ++;
     }
+
     div_mensagem.innerHTML = mensagem;
   }
 
+    function validarSenha() {
+    var senha = senha_input.value;
+    var confirmacaoSenha = confirmacao_senha_input.value;
+    var mensagem = "";
+
+    if(!senha.includes(confirmacaoSenha)){
+      document.getElementById('div_mensagem1').style.display = 'block';
+      mensagem = `As senhas não coincidem.<br><br> Por favor, confirme sua senha novamente!`;
+    } else {
+      document.getElementById('div_mensagem1').style.display = 'none';
+    }
+
+    div_mensagem1.innerHTML = mensagem;
+  }
 
   function cadastrar() {
-    // aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = input_nome.value;
     var sobreNomeVar = input_sobreNome.value;
     var emailVar = input_email.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-    // Verificando se há algum campo em branco
+
     if (
+      cont == 0 ||
       nomeVar == "" ||
       sobreNomeVar == "" ||
       emailVar == "" ||
@@ -136,7 +135,7 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "(Preencha todos os campos cumprindo todas as exigências!)";
 
       finalizarAguardar();
       return false;
@@ -153,8 +152,6 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         sobreNomeServer: sobreNomeVar,
         emailServer: emailVar,
@@ -174,7 +171,7 @@
             window.location = "login.html";
           }, "2000");
 
-          limparFormulario();  // VER ONDE TA ESSA MERDA
+          limparFormulario();  
           finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";

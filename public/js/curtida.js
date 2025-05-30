@@ -71,12 +71,23 @@ function curtirOuDescurtir(botaoCurtida) {
                 botaoCurtida.dataset.curtido = "true";
                 var imagem = botaoCurtida.querySelector("img");
                 imagem.src = "./assets/coracao-preenchido.png";
+                alertaCurtidas()
             }
         })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
     }
+}
+
+function alertaCurtidas(){
+    var alertaCurtida = document.querySelector('.alertaCurtida');
+    alertaCurtida.classList.add("mostrar");
+
+
+    setTimeout(() => {
+        alertaCurtida.classList.remove("mostrar");
+    }, 4500); 
 }
 
 

@@ -76,7 +76,7 @@ body {
   display: flex;
   justify-content: space-between; 
   list-style: none;
-  width: 550px;
+  width: 560px;
   align-items: center;
 }
 
@@ -212,6 +212,7 @@ margin-left: 50px;
 }
 
 
+
 .banner1{
   height: 650px;
   width: 100%;
@@ -305,6 +306,90 @@ margin-left: 50px;
 
 
 
+.orientacoes {
+    display: flex;
+    justify-content: flex-end;
+    width: 600px;
+    height: 110px;
+    position: absolute;
+    top: 680px;
+    right: 3%;
+    z-index: 5;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.card_orientacoes {
+    display: block;
+    background-color: var(--bege);
+    color: black;
+    width: 525px;
+    border-radius: 4px;
+    border: #5e4c34 3px solid;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.card_orientacoes #mensagem_orientacao {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.card_orientacoes #mensagem_orientacao h3 {
+  color: #B88E2F;
+  margin: 0px;  
+  font-weight: 500;
+}
+
+.card_orientacoes #mensagem_orientacao span {
+  font-weight: 400;
+}
+
+
+.orientacoes1 {
+    display: flex;
+    justify-content: flex-end;
+    width: 600px;
+    height: 110px;
+    position: absolute;
+    top: 1455px;
+    right: 3%;
+    z-index: 5;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.card_orientacoes1 {
+    display: block;
+    background-color: var(--bege);
+    color: black;
+    width: 470px;
+    border-radius: 4px;
+    border: #5e4c34 3px solid;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.card_orientacoes1 #mensagem_orientacao1 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.card_orientacoes1 #mensagem_orientacao1 h3 {
+  color: #B88E2F;
+  margin: 0px;  
+  font-weight: 500;
+}
+
+.card_orientacoes1 #mensagem_orientacao1 span {
+  font-weight: 400;
+}
+
+
 .social{
   display: flex;
   margin-top: 50px;
@@ -387,6 +472,7 @@ margin-left: 50px;
   background-size: cover;
 
 }
+
 .redPort .container1{
   height: 100%;
   width: 100%;
@@ -395,7 +481,10 @@ margin-left: 50px;
   align-items: center;
   background: url('../assets/imgs/01.jpg');
   background-size: cover;
+}
 
+.redPort a{
+  text-decoration: none;
 }
 
 
@@ -469,6 +558,7 @@ background-color: var(--branco);
 
 }
 
+
 /* FOOTER */
 
  .footer {
@@ -488,24 +578,19 @@ background-color: var(--branco);
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.footer-content {
+.footer-conteudo {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
 }
 
-.footer-section {
-  flex: 1;
-  min-width: 250px;
-}
-
-.footer-section h2 {
+.footer-card h2 {
   color: #cc9a00;
   font-size: 24px;
   margin-bottom: 10px;
@@ -515,35 +600,35 @@ background-color: var(--branco);
   font-style: normal;
 }
 
-.footer-section h3 {
+.footer-card h3 {
   color: #cc9a00;
   margin-bottom: 10px;
-   text-decoration: none;
+  text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
-.footer-section ul {
+.footer-card ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-section ul li {
+.footer-card ul li {
   margin-bottom: 8px;
 }
 
-.footer-section ul li a {
+.footer-card ul li a {
   color: #333;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.footer-section ul li a:hover {
+.footer-card ul li a:hover {
   color: var(--maronzin);
 }
 
-.footer-section p a {
+.footer-card p a {
   color: #cc9a00;
   text-decoration: none;
 }
