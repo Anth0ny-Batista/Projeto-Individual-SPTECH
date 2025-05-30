@@ -27,6 +27,10 @@ router.get("/listaCurtidas/:idUsuario", function (req, res) {
   fotosController.listaCurtidas(req, res);
 });
 
+router.get("/listaFavorito/:idUsuario", function (req, res) {
+  fotosController.listaFavorito(req, res);
+});
+
 router.get("/topFotos", function (req, res) {
   fotosController.topFotos(req, res);
 });

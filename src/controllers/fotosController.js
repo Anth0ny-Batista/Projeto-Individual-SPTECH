@@ -37,6 +37,13 @@ function listaCurtidas(req, res) {
   });
 }
 
+function listaFavorito(req, res) {
+  var idUsuario = req.params.idUsuario;
+  fotosModel.listaFavorito(idUsuario).then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
 function topFotos(req, res) {
   fotosModel.topFotos().then((resultado) => {
     res.status(200).json(resultado);
@@ -79,6 +86,7 @@ module.exports = {
     listaCasamento,
     listaPreWedding,
     listaCurtidas,
+    listaFavorito,
     topFotos,
     fotosPorCategoria,
     fotoMaisCurtida,

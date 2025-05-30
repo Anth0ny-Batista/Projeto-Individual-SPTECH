@@ -300,6 +300,10 @@ margin-left: 50px;
   font-style: normal;
 }
 
+.container .redEntrar1:hover{
+background-color: #FFE0C2;
+}
+
 .container a{
   text-decoration: none;
 }

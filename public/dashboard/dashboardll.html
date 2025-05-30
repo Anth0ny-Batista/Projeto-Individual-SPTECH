@@ -18,19 +18,30 @@
 
 <body>
 
+  
   <aside>
     <div class="containerNavBar">
-
-      <div class="titulo">MEMORIES</div>
-
       
-        <a class="ttselecao" href="../curtidasUser.html">Minha Seleção</a>
+      <div class="titulo">MEMORIES</div>
+      
+      
+      <a class="ttselecao" href="../curtidasUser.html">Minha Seleção</a>
+      
+      <a class="ttalbuns" href="../albunsRed.html">Álbuns</a>
 
-       <a class="ttalbuns" href="../albunsRed.html">Álbuns</a>
-
- 
+        <div class="alertaBotaoFoto" id="alertaBotaoFoto">
+            <div class="card_alertaBotaoFoto">
+                <span id="mensagem_alertaBotaoFoto"> <h3>Quer visualizar as fotos do que estão no TOP5?.</h3> 
+                  <span>Clique nos botões ao lado!!!</span>
+                </span>
+            </div>
+        </div
+      
+      
     </div>
   </aside>
+  
+  
 
   <main>
     <section id="containerIndicadores" class="containerIndicadores">
@@ -71,11 +82,13 @@
 
   </main>
 
+
   <script>
 
     window.onload = function () {
       exibirGraficodeBarra();
       fotoMaisCurtidaFavorita();
+      alertaBotaoFotos();
     };
 
     var lista_fotoMaisCurtida = []
@@ -306,14 +319,14 @@
       );
 
       const legendaDiv = document.getElementById("legendaLinks");
-      legendaDiv.innerHTML = ""; // Limpa se já existia
+      legendaDiv.innerHTML = "";
 
       for (var k = 0; k < 5; k++) {
         var foto = resposta[k];
         var numeroTop = k + 1;
 
         var link = document.createElement("a");
-        link.href = foto.caminhoFoto; // Substitua por sua propriedade correta
+        link.href = foto.caminhoFoto; 
         link.target = "_blank";
         link.innerText = `Top ${numeroTop}`;
         link.style.margin = "0 10px";
@@ -352,7 +365,7 @@
       }
 
       const configPizza = {
-        type: 'pie',
+        type: 'doughnut',
         data: dados,
         options: {
           maintainAspectRatio: false,
@@ -371,6 +384,19 @@
 
 
     }
+
+
+    function alertaBotaoFotos(){
+      var alertaBotaoFoto = document.querySelector('.alertaBotaoFoto');
+
+        setTimeout(() => {
+        alertaBotaoFoto.classList.add("mostrar");
+
+        setTimeout(() => {
+            alertaBotaoFoto.classList.remove("mostrar");
+        }, 7500);
+    }, 10500);; 
+}
 
 
   </script>

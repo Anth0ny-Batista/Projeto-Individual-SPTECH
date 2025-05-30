@@ -22,7 +22,7 @@
     rel="stylesheet">
 </head>
 
-<body onload="listaCurtidas();">
+<body onload="listaCurtidas(); listaFavorito()">
 <div class="header">
     <div class="container">
       <h1 class="titulo">MEMORIES</h1>
@@ -49,16 +49,61 @@
     </div>
   </div>
 
+   <div class="banner1 efeito-vidro">
+    <div class="container1">
+      <div class="fraseprincipal">
+        <p>Aqui você encontra as fotos que você <span>curtiu</span> e <span>favoritou</span>. <br>Sinta-se à vontade para revê-las e relembrar os momentos que mais te inspiraram e trouxeram esperança.</p> <br>          
+        </div>
+        <div class="frasesub">
+          <p>Que tal explorar suas lembranças <span>favoritas</span>?</p>
+        </div>
+        <div class="botoesAlbuns">
+        <a href="#minhasFavoritas">
+            <div class="redEntrar1">
+              Minhas Favoritas
+            </div>
+          </a>
+          <a href="#minhasCurtidas">
+            <div class="redEntrar1">
+              Minhas Curtidas
+            </div>
+          </a>
+        </div>
+         <span id="minhasFavoritas"></span>
+    </div>
+  </div>
+
   <div class="banner efeito-vidro">
     <div class="container">
-      <p><span>Minha Seleção</span></p>
+      <p><span>Minhas favoritas</span></p>
+    </div>
+  </div>
+
+  <div id="div_mensagem1" class="galeria1">
+<!-- 
+                      <div class="fotoContainer1" data-id-foto="${idFoto}">
+                         <div>
+                            <div class="foto1"><img src="${fotoAleatoria}" alt=""></div>
+                          </div>
+                          <div class="favorito">
+                            <button class="botaofavorito" data-favorito="" onclick="favoritarOuDesfavoritar(this)"><img src="" alt=""></button>
+                          </div>
+                      </div>
+ -->
+</div>
+<span id="minhasCurtidas"></span>
+
+  <div class="banner efeito-vidro">
+    <div class="container">
+      <p><span>Minhas Curtidas</span></p>
     </div>
   </div>
   </div>
+
   <br><br>
   <div id="div_mensagem" class="galeria">
-
-                      <!-- <div class="fotoContainer" data-id-foto="${idFoto}">
+<!-- 
+                      <div class="fotoContainer" data-id-foto="${idFoto}">
                          <div>
                             <div class="foto"><img src="${fotoAleatoria}" alt=""></div>
                           </div>

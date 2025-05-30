@@ -188,6 +188,46 @@ function listaCurtidas(){
         }
         document.getElementById(`div_mensagem`).innerHTML = mensagem;
         verificarCurtida();
+        
+      });
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+}
+
+var lista_fotos6 = []
+
+function listaFavorito(){
+
+  fetch(`/fotos/listaFavorito/${idUsuario}`, {
+    method: "GET",
+  })
+    .then(function (resposta) {
+      resposta.json().then((fotos) => {
+        lista_fotos6 = fotos;
+
+        console.log("lista_fotos6");
+        console.log(lista_fotos6[0].caminhoFoto);
+        var mensagem1 = ""
+
+        for (var i = 0; i < lista_fotos6.length; i++) {
+          var fotoAleatoria = lista_fotos6[i].caminhoFoto;
+          var idFoto = lista_fotos6[i].idFoto;
+          mensagem1 += `<div class="fotoContainer1" data-id-foto="${idFoto}">
+                         <div>
+                            <div class="foto1"><img src="${fotoAleatoria}" alt=""></div>
+                          </div>
+                          <div class="LIKE"> 
+                            <div class="favorito">
+                            <button class="botaofavorito" data-favorito="" onclick="favoritarOuDesfavoritar1(this)"><img src="" alt=""></button>
+                            </div>
+                          </div>
+                      </div>`;
+        }
+        document.getElementById(`div_mensagem1`).innerHTML = mensagem1;
+        verificarFavoritoSelecao();  
       });
     })
     .catch(function (resposta) {

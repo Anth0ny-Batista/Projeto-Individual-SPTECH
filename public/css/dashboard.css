@@ -277,18 +277,28 @@ main{
 
 #legendaLinks {
   display: flex;
-  gap: 60px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 #legendaLinks a {
-  width: auto; 
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: #5e4c34;
+  border: 2px solid #B69972;
+  border-radius: 10px;
+  width: 90px; 
   margin: 0; 
   text-decoration: none;
   color: #FFFFFF;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  
+  font-weight: 400; 
+}
+
+#legendaLinks a:hover{
+  transition: .3s;
+  background-color: #d3b79c;
 }
 
 .tituloGraficos1{
@@ -302,4 +312,54 @@ main{
   margin-bottom: 0px;
   margin-top: 0px;
 
+}
+
+
+
+.alertaBotaoFoto {
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.9s ease-in-out, visibility 0.9s ease-in-out; 
+
+    display: flex;
+    justify-content: flex-end;
+    width: 240px;
+    height: 110px;
+    position: fixed;
+    top: 85%;
+    left: 0.2%;
+    z-index: 9999;
+}
+
+#alertaBotaoFoto.mostrar{
+    opacity: 1; 
+    visibility: visible;
+}
+
+.card_alertaBotaoFoto {
+    display: block;
+    background-color: var(--bege);
+    color: black;
+    width: 220px;
+    border-radius: 15px;
+    border: #5e4c34 3px solid;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+}
+
+.alertaBotaoFoto #mensagem_alertaBotaoFoto {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.alertaBotaoFoto #mensagem_alertaBotaoFoto h3 {
+  color: #B88E2F;
+  margin: 0px;  
+  font-weight: 500;
+}
+
+.alertaBotaoFoto #mensagem_alertaBotaoFoto span {
+  font-weight: 400;
 }

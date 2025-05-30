@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html{
+   scroll-behavior: smooth;
+}
+
 
 body {
   margin: 0;
@@ -42,21 +46,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 120px;
-}
-
-.header .redEntrar{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 120px;
-  border: 2px solid #000000;
-  border-radius: 5px;
-  background-color: #fff3f9;
-}
-
-.header .redEntrar:hover{
-  background-color: var(--bege) ;
 }
 
 .titulo{
@@ -138,9 +127,9 @@ margin-left: 50px;
 
 .banner{
  display: flex;
- margin-top: 120px;
+ margin-top: 20px;
   height: 120px;
-  width: 520px;
+  width: 550px;
   background-color: var(--bege);
 }
 
@@ -166,8 +155,101 @@ margin-left: 50px;
 }
 
 
+/* Banner1 */
+.banner1{
+  height: 650px;
+  width: 100%;
+  background-image: url("../assets/imgs/01.jpg");
+  background-size: cover;
+}
+
+.banner1 .container1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.banner1 .container1 span{
+  color: #cc9a00;
+}
 
 
+.container1 .fraseprincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+}
+
+.container1 .fraseprincipal p{
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  background-color: rgba(94,78,52,0.4);
+}
+
+.container1 .frasesub{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin-top: 30px;
+  height: 100px;
+  width: 790px;
+  border-radius: 10px;
+
+  background-color: rgba(94,78,52,0.4);
+  color: var(--branco);
+
+  font-size: 30px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.container1 .botoesAlbuns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.container1 .redEntrar1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 250px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  background-color: var(--bege);
+
+  margin: 20px;
+  color: #5e4c34;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.container1 .redEntrar1:hover{
+background-color: #FFE0C2;
+}
+
+.container1 a{
+  text-decoration: none;
+}
 /* GALERIA FOTOS */
 
 .galeria {
@@ -186,6 +268,7 @@ margin-left: 50px;
     border-radius: 8px 8px 0px 0px;
   }
 
+  /* BOTÃO CURTIDA */
   .LIKE{
     width: 100%;
     border: 1px solid black;
@@ -217,10 +300,83 @@ margin-left: 50px;
     display: block;
   }
 
+  /* BOTÃO FAVORITO */
+  .favorito {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-self: center;
+  }
+
+  .botaofavorito{
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .LIKE img{
+  width: 35px;
+  height: 30px;
+  }
+
+  .foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+  }
 
 
+  /* GALERIA FAVORITO */
 
+  .galeria1 {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+    gap: 16px;
+    justify-content: center;
+    padding: 0 15px;
+    width: 100%;
+  }
 
+  .foto1 {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 8px 8px 0px 0px;
+  }
+
+  .LIKE1{
+    width: 100%;
+    border: 1px solid black;
+    border-top: 2px solid black;
+    background-color: var(--bege);
+    height: 45px;
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    justify-content: start;
+    align-self: center;
+
+  }
+
+  .LIKE1 .botaoCurtida1{
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .LIKE1 img{
+  width: 35px;
+  height: 30px;
+  }
+
+  .foto1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+  }
 
 /* FOOTER */
 

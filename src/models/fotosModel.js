@@ -34,9 +34,22 @@ function listaCurtidas(idUsuario) {
   console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function descurtir(): ", idUsuario);
   var instrucaoSql = `
        select f.idFoto, f.caminhoFoto, f.fkCategoria from foto f 
-	            join curtida c
-              on f.idFoto = c.fkFoto
-              where c.fkUsuario = ${idUsuario};
+          join curtida c
+          on f.idFoto = c.fkFoto
+          where c.fkUsuario = ${idUsuario};
+    `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+
+function listaFavorito(idUsuario) {
+  console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function descurtir(): ", idUsuario);
+  var instrucaoSql = `
+       select f.idFoto, f.caminhoFoto, f.fkCategoria, fa.fkUsuario from foto f 
+            join favorito fa
+            on f.idFoto = fa.fkFoto
+            where fa.fkUsuario = ${idUsuario};
     `;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -119,6 +132,7 @@ module.exports = {
   listaCasamento,
   listaPreWedding,
   listaCurtidas,
+  listaFavorito,
   topFotos,
   fotosPorCategoria,
   fotoMaisCurtida,
