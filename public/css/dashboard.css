@@ -6,17 +6,24 @@ body{
   height: 100vh;
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../assets/imgs/01.jpg');
   background-size: cover;
+ 
 }
 
 aside{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5e4c34;
+  background-color: #D2B48C;
+  border-right: 2px solid #B69972;
   width: 15%;
   height: 101vh;
   margin-left: -10px;
   margin-top: -10px;
+
+
+  box-shadow: 10px 2px 10px 2px rgba(18, 22, 77, 0.37);
+  border-radius: 5px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 main{
@@ -41,10 +48,68 @@ main{
 .containerNavBar{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
-  height: 100%;
+  height: 70%;
   width: 100%;
+}
+
+.titulo{
+  display: flex;
+  align-self: center;
+  justify-self: start;
+
+
+  font-size: 35px;
+  letter-spacing: 5px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.ttalbuns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+
+  background-color: #B69972;
+  color: #FFFFFF;
+  font-size: 25px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ttalbuns:hover{
+  background-color: #5e4c34;
+  transition: 0.5s;
+}
+
+.ttselecao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+
+  background-color: #B69972;
+  color: #FFFFFF;
+  font-size: 25px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ttselecao:hover{
+  background-color: #5e4c34;
+  transition: 0.5s;
 }
 
 .containerIndicadores{
@@ -62,6 +127,7 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 3px solid #d3b79c;
 
     font-size: 25px;
   letter-spacing: 2px;
@@ -79,6 +145,7 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 3px solid #d3b79c;
 
     font-size: 25px;
   letter-spacing: 2px;
@@ -102,6 +169,7 @@ main{
   justify-content: center;
   background-color: var(--bege);
   border-radius: 10px;
+  border: 3px solid #d3b79c;
 }
 
 .graficoLinha{
@@ -121,7 +189,7 @@ main{
     width: 65%;
     height: 85%;
     border-radius: 15px;
-    border: 5px solid red;
+    border: 2px solid red;
 }
 
 .legenda{
@@ -141,7 +209,7 @@ main{
     width: 65%;
     height: 85%;
     border-radius: 15px;
-    border: 5px solid #FFD700;
+    border: 2px solid #FFD700;
 }
 
 .containerBaixo{
@@ -168,6 +236,7 @@ main{
   width: 675px;
   height: 285px;
   border-radius: 10px;
+  border: 3px solid #d3b79c;
 }
 
 
@@ -191,8 +260,9 @@ main{
   justify-content: center;
   background-color: var(--bege);
   width: 49%;
-  height: 100%;
+  height: 97%;
   border-radius: 10px;
+  border: 3px solid #d3b79c;
 }
 
 
@@ -215,7 +285,7 @@ main{
   width: auto; 
   margin: 0; 
   text-decoration: none;
-  color: #a97e52;
+  color: #FFFFFF;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   

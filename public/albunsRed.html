@@ -9,7 +9,6 @@
     <title>Memories | Portifolio</title>
 
     <link rel="stylesheet" href="./css/albunsRed.css">
-    <link rel="icon" href="assets/icon/favicon2.ico">
     <script src="./js/sessao.js"></script>
     <script src="./js/geradorDeFotos.js"></script>
 
@@ -34,6 +33,10 @@
           </li>
             <li>|</li>
           <li>
+            <li>
+            <a href="./dashboard/dashboardll.html">Dashboard</a>
+          </li>
+          <li>|</li>
             <div class="blocoUser">
             <div class="navbarUser"><a id="userSession"></a></div>
             <div class="navbarlogout"><span onclick="limparSessao()" class="txtLogout"><a>Logout</a></span></div>
@@ -51,7 +54,7 @@
          personalizada para guardar as fotos que você mais gostou.</p> <br>          
         </div>
         <div class="frasesub">
-          <p>Comece a <span>curtir</span> escolher a sua <span>favorita</span> agora!</p>
+          <p>Comece a <span>curtir</span> e a escolher a suas <span>favoritas</span> agora!</p>
         </div>
         <div class="botoesAlbuns">
         <a href="albumCs.html">
@@ -59,7 +62,7 @@
               Álbum Casamento
             </div>
           </a>
-          <a href="./dashboard/dashboardll.html">
+          <a href="./albumPw.html">
             <div class="redEntrar1">
               Álbum Pré-Wedding
             </div>
@@ -74,6 +77,7 @@
       </div>
     </div>
     <br><br>
+    <div class="setaBaixo"></div>
 
     <div class="swiper mySwiper efeito-vidro">
     <div class="swiper-wrapper">
@@ -111,13 +115,13 @@
   </div>
   
   
-    <div class="social efeito-vidro">
-      <div class="container">       
-        <p><span>"Pré-Wedding's"</span></p>           
-      </div>
+  <div class="social efeito-vidro">
+    <div class="container">       
+      <p><span>"Pré-Wedding's"</span></p>           
     </div>
-    <br><br>
-
+  </div>
+  <br><br>
+  <div class="setaBaixo1"></div>
 
   <div class="swiper mySwiper efeito-vidro">
     <div class="swiper-wrapper">
@@ -153,7 +157,7 @@
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
-  <br><br>
+
 
   <div class="textPortifolio efeito-vidro">
       <div class="container">       
@@ -185,7 +189,8 @@
       <div class="footer-section links">
         <h3>Navegação</h3>
         <ul>
-          <li><a href="./curtidasUser.html">Fotos Curtidas</a></li>
+          <li><a href="./curtidasUser.html">Minha Seleção</a></li>
+          <li><a href="./dashboard/dashboardll.html">Dashboard</a></li>
           <li><a href="./albumCs.html">Álbum Casamento</a></li>
           <li><a href="./albumPw.html">Álbum Pré-Wedding</a></li>
         </ul>
@@ -214,7 +219,7 @@
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: 3,
+      slidesPerView: 2,
       coverflowEffect: {
         rotate: 50,
         stretch: 0,

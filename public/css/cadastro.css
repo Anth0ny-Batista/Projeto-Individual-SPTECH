@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.efeito-vidro {
+  background: rgba( 255, 255, 255, 0.35 );
+  box-shadow: 20px 5px 20px 5px rgba( 31, 38, 135, 0.37 );
+  border-radius: 5px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.efeito-vidro-login {
+  box-shadow: 1px 1px 20px 20px rgba( 000, 000, 000, 0.37 );
+  border-radius: 5px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+:root {
+  --bege:#FFF3E3;
+  --branco: #FFFFFF;
+  --maronzin: #B88E2F;
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 65px;
+}
+
+
+.img-fundo{
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../assets/imgs/01.jpg');
+  background-size: cover;
+  background-position: center; 
+}
+
+
+/* Cadastro */
+
+.cadastro {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.redIndex1{
+  position: absolute;
+  top: 50px;
+  left: 1400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+
+  text-decoration: none;
+  color: #000000;
+   letter-spacing: 5px;
+   font-family: "Poppins", sans-serif;
+   font-weight: 200;
+   font-style: normal;
+   font-size: 35px;
+   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.redIndex1:hover {
+    background-color: var(--bege);
+}
+
+.alertaEmail{
+  display: none;
+  position: absolute;
+  top: 420px;
+  left: 610px;
+  padding: 5px;
+  width: 245px;
+  height: 40px;
+  background-color: var(--branco);
+
+ border-radius: 5px;
+  border: 1px solid #000000;
+
+  text-decoration: none;
+  color: red;
+   letter-spacing: 5px;
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 12px;
+}
+
+
+
+.cadastro .container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+}
+
+.card2 {
+  width: 600px;
+  height: 100%;
+  background-color: var(--bege);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: var(--maronzin);
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.card2 h2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+  color: #5e4c34;
+}
+
+.formulario {
+  display: flex;
+  height: 65%;
+  width: 80%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.formulario span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.formulario input {
+  border: 1px solid #000000;
+  text-align: center;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.redCadastro1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+ }
+
+ .redCadastro1 a{
+  color: var(--maronzin);
+  text-decoration: none;
+  font-weight: 500;
+  }
+
+  .redCadastro1 a:hover {
+    text-decoration: underline;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.botao {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--maronzin);
+  width: 120px;
+  height: 30px;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.botao:hover {
+    background-color: #806642;
+}
+
+.loading-div {
+  position: absolute; 
+  top: 80%;
+  width: 50px;
+  display: block;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+/* FORMULARIO */
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  position: absolute;
+
+  left: 45%;
+  top: 10%;
+
+  display: none;
+  background-color: var(--bege);
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #5e4c34 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.formulario .tipo_campo {
+  font-size: 20px;
+  font-weight: 600 !important;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  border: 2px solid #32b9cd;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}

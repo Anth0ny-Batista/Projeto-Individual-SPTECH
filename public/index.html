@@ -8,8 +8,7 @@
 
   <title>Memories | Página Inicial</title>
 
-  <link rel="stylesheet" href="./css/estilo.css">
-  <link rel="icon" href="assets/icon/favicon2.ico">
+  <link rel="stylesheet" href="./css/index.css">
   <script src="./js/sessao.js"></script>
   <script src="./js/geradorDeFotos.js"></script>
 
@@ -51,16 +50,17 @@
       <span>Um álbum fotográfico que te faz relembrar da esperança.</span><br>
       <span>Explore, curta e favorite as fotos que mais tocarem seu coração!</span>
       <hr><hr>
-        <a href="login.html">
-            <div class="redEntrar1">
-              Explorar Álbuns
-            </div>
-          </a>
+      <a href="login.html">
+        <div class="redEntrar1">
+          Explorar Álbuns
+        </div>
+      </a>
     </div>
   </div>
+  
+  <div class="setaBaixo"></div>
 
-
-  <div class="social">
+  <div class="card-anthony">
     <div class="container efeito-vidro">
       <div class="box">
         <h1>Olá, meu nome é Anthony!</h1><br>
@@ -85,9 +85,10 @@
     </div>
   </div>
   <br><br>
+  
 
-  <div class="containertextPorti">
-  <div class="textPortifolio efeito-vidro">
+  <div class="button-banner">
+  <div class="text-button efeito-vidro">
     <div class="container">
       <p><span>Algumas lembranças para você explorar:</span></p>
     </div>
@@ -115,11 +116,13 @@
       </div>
     </div>
     <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 <br><br>
 
-  <div class="containertextPorti">
-  <div class="textPortifolio efeito-vidro">
+  <div class="button-banner">
+  <div class="text-button efeito-vidro">
     <div class="container">
       <p><span>Quer ver todas as fotos? <a href="./login.html">Clique Aqui!</a> </span></p>
     </div>
@@ -169,10 +172,10 @@
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: 3,
+      slidesPerView: 2,
       coverflowEffect: {
         rotate: 50,
-        stretch: 0,
+        stretch: 50,
         depth: 100,
         modifier: 1,
         slideShadows: true,

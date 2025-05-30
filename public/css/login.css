@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.efeito-vidro {
+  background: rgba( 255, 255, 255, 0.35 );
+  box-shadow: 20px 5px 20px 5px rgba( 31, 38, 135, 0.37 );
+  border-radius: 5px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.efeito-vidro-login {
+  box-shadow: 1px 1px 20px 20px rgba( 000, 000, 000, 0.37 );
+  border-radius: 5px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+:root {
+  --bege:#FFF3E3;
+  --branco: #FFFFFF;
+  --maronzin: #B88E2F;
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 65px;
+}
+
+
+
+.img-fundo {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../assets/imgs/01.jpg');
+    background-size: cover;
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.redIndex {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+
+
+    text-decoration: none;
+    color: #000000;
+    letter-spacing: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 35px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.redIndex:hover {
+    background-color: var(--bege);
+}
+
+.login .container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    width: 600px;
+    height: 100%;
+    background-color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--maronzin);
+    flex-direction: column;
+    padding: 20px 0;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+
+.login .formulario {
+    padding: 10px;
+    display: flex;
+    height: 35%;
+    width: 80%;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.login .formulario span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.login .formulario input {
+    border: 1px solid #000000;
+    text-align: center;
+    margin: 0;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.login .card h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    color: #806642;
+}
+
+.redCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.redCadastro a {
+    color: var(--maronzin);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.redCadastro a:hover {
+    text-decoration: underline;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 15px;
+}
+
+.botao {
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    background-color: var(--maronzin);
+    width: 120px;
+    height: 40px;
+    align-self: center;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #806642;
+}
+
+.loading-div {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    display: none;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: auto;
+}
+
+#div_erros_login {
+    display: none;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.card_erro {
+    display: none;
+    background-color: var(--bege);
+    color: black;
+    width: 280px;
+    border-radius: 4px;
+    border: #5e4c34 3px solid;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+input {
+    margin-bottom: 10px;
+    border: 2px solid #a0522d;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
