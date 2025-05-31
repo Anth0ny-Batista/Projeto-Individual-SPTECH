@@ -90,12 +90,21 @@ function alertaCurtidas(){
     }, 4500); 
 }
 
+function alertaFavorito(){
+    var alertaFavorito = document.querySelector('.alertaFavorito');
+    alertaFavorito.classList.add("mostrar");
+
+
+    setTimeout(() => {
+        alertaFavorito.classList.remove("mostrar");
+    }, 5500); 
+}
+
 
 async function verificarFavorito() {
     var containers = document.querySelectorAll('.fotoContainer');
     var jaTemFavorito = false;
 
-    // verificar se já existe um favorito
     for (var i = 0; i < containers.length; i++) {
         var container = containers[i];
         var idFoto = container.dataset.idFoto;
@@ -147,13 +156,12 @@ async function verificarFavorito() {
     }
 }
 
-
+// Precisa desse pois o ".containerFoto" já está sendo utilizado no container das fotos curtidas.
 
 async function verificarFavoritoSelecao() {
     var containers = document.querySelectorAll('.fotoContainer1');
     var jaTemFavorito = false;
 
-    // verificar se já existe um favorito
     for (var i = 0; i < containers.length; i++) {
         var container = containers[i];
         var idFoto = container.dataset.idFoto;
@@ -249,6 +257,7 @@ function favoritarOuDesfavoritar(botaofavorito) {
                 var imagem = botaofavorito.querySelector("img");
                 imagem.src = "./assets/estrela-preenchida.png";
                 verificarFavorito();
+                alertaFavorito();
             }
         })
             .catch(function (resposta) {
@@ -260,7 +269,7 @@ function favoritarOuDesfavoritar(botaofavorito) {
 
 
 
-function favoritarOuDesfavoritar1(botaofavorito) {
+function favoritarOuDesfavoritarSelecao(botaofavorito) {
     var container = botaofavorito.closest('.fotoContainer1');
     var idFoto = container.dataset.idFoto;
     var favorito = botaofavorito.dataset.favorito;

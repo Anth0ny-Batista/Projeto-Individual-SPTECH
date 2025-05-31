@@ -32,7 +32,7 @@
         <div class="alertaBotaoFoto" id="alertaBotaoFoto">
             <div class="card_alertaBotaoFoto">
                 <span id="mensagem_alertaBotaoFoto"> <h3>Quer visualizar as fotos do que estão no TOP5?.</h3> 
-                  <span>Clique nos botões ao lado!!!</span>
+                  <span>Clique nos botões abaixo do gráfico!!!</span>
                 </span>
             </div>
         </div
@@ -109,7 +109,7 @@
             var fotoMaisCurtida1 = lista_fotoMaisCurtida[0].caminhoFoto;
             var numeroCurtidas = lista_fotoMaisCurtida[0].contagemCurtidas;
 
-            mensagem += `Foto mais curtida ❤️${numeroCurtidas}
+            mensagem += `<p>Foto mais curtida ❤️${numeroCurtidas}</p>
                       <img src="${fotoMaisCurtida1}" alt="">`;
 
             document.getElementById(`graficoLinha`).innerHTML = mensagem;
@@ -132,7 +132,7 @@
             var fotoMaisFavoritada1 = lista_fotoMaisFavoritada[0].caminhoFoto;
             var numeroFavoritos = lista_fotoMaisFavoritada[0].contagemfavoritos;
 
-            mensagem1 += `Foto mais favoritada ⭐${numeroFavoritos}
+            mensagem1 += `<p>Foto mais favoritada ⭐${numeroFavoritos}</p>
                       <img src="${fotoMaisFavoritada1}" alt="">`;
 
             document.getElementById(`legenda`).innerHTML = mensagem1;
@@ -153,7 +153,7 @@
             var mensagem2 = ""
             var numeroCurtidas1 = lista_indicadorCurtida[0].contagemCurtidas;
 
-            mensagem2 += `<div class="indicador1">Quantidade total de curtidas: ${numeroCurtidas1}</div>      
+            mensagem2 += `<div class="indicador1">Total de Curtidas (todos usuários): ${numeroCurtidas1}</div>      
                         `;
 
             document.getElementById(`containerIndicadores1`).innerHTML = mensagem2;
@@ -176,7 +176,7 @@
             var mensagem3 = ""
             var numeroFavoritos1 = lista_indicadorFavorito[0].contagemFavoritos;
 
-            mensagem3 += `<div class="indicador efeito-vidro">Quantidade total de Favoritos: ${numeroFavoritos1}</div>      
+            mensagem3 += `<div class="indicador efeito-vidro">Total de Favoritos (todos usuários): ${numeroFavoritos1}</div>      
                         `;
 
             document.getElementById(`containerIndicadores`).innerHTML += mensagem3;
@@ -394,7 +394,7 @@
 
         setTimeout(() => {
             alertaBotaoFoto.classList.remove("mostrar");
-        }, 7500);
+        }, 5500);
     }, 10500);; 
 }
 

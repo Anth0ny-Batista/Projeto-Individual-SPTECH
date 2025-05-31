@@ -116,14 +116,6 @@ margin-left: 50px;
 
 /* BANNER */
 
-.img_fundo{
-  display: flex;
-  height: 250px;
-  width: 100%;
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../assets/imgs/01.jpg');
-  background-size: cover;
-  margin: 0px;
-}
 
 .banner{
  display: flex;
@@ -159,8 +151,9 @@ margin-left: 50px;
 .banner1{
   height: 650px;
   width: 100%;
-  background-image: url("../assets/imgs/01.jpg");
+  background-image: url("../assets/imgs/p07.jpg");
   background-size: cover;
+  background-position: center; 
 }
 
 .banner1 .container1{

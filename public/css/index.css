@@ -364,9 +364,11 @@ background-color: var(--branco);
 }
 
 
+
 /* FOOTER */
 
-  .footer {
+ .footer {
+  margin-top: 50px;
   background-color: #f9f9f9;
   padding: 40px 0;
   border-top: 1px solid #ddd;
@@ -382,24 +384,19 @@ background-color: var(--branco);
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.footer-content {
+.footer-conteudo {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
 }
 
-.footer-section {
-  flex: 1;
-  min-width: 250px;
-}
-
-.footer-section h2 {
+.footer-card h2 {
   color: #cc9a00;
   font-size: 24px;
   margin-bottom: 10px;
@@ -409,35 +406,35 @@ background-color: var(--branco);
   font-style: normal;
 }
 
-.footer-section h3 {
+.footer-card h3 {
   color: #cc9a00;
   margin-bottom: 10px;
-   text-decoration: none;
+  text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
-.footer-section ul {
+.footer-card ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-section ul li {
+.footer-card ul li {
   margin-bottom: 8px;
 }
 
-.footer-section ul li a {
+.footer-card ul li a {
   color: #333;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.footer-section ul li a:hover {
+.footer-card ul li a:hover {
   color: var(--maronzin);
 }
 
-.footer-section p a {
+.footer-card p a {
   color: #cc9a00;
   text-decoration: none;
 }
@@ -449,4 +446,3 @@ background-color: var(--branco);
   border-top: 1px solid #e0e0e0;
   padding-top: 15px;
 }
-

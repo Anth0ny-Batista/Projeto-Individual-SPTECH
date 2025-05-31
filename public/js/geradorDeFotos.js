@@ -221,7 +221,7 @@ function listaFavorito(){
                           </div>
                           <div class="LIKE"> 
                             <div class="favorito">
-                            <button class="botaofavorito" data-favorito="" onclick="favoritarOuDesfavoritar1(this)"><img src="" alt=""></button>
+                            <button class="botaofavorito" data-favorito="" onclick="favoritarOuDesfavoritarSelecao(this)"><img src="" alt=""></button>
                             </div>
                           </div>
                       </div>`;

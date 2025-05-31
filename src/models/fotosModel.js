@@ -1,19 +1,19 @@
 var database = require("../database/config");
 
 function listar() {
-  var instrucaoSql = `SELECT idFoto, caminhoFoto, fkCategoria FROM foto`;
+  var instrucaoSql = `SELECT idFoto, caminhoFoto, fkCategoria FROM foto WHERE fkCategoria = 3`;
 
   return database.executar(instrucaoSql);
 }
 
 function aleatorioCasamento() {
-  var instrucaoSql = `SELECT idFoto, caminhoFoto, fkCategoria FROM foto WHERE fkCategoria = 1`;
+  var instrucaoSql = `SELECT idFoto, caminhoFoto, fkCategoria FROM foto WHERE fkCategoria = 4`;
 
   return database.executar(instrucaoSql);
 }
 
 function aleatorioPreWedding() {
-  var instrucaoSql = `SELECT idFoto, caminhoFoto, fkCategoria FROM foto WHERE fkCategoria = 2`;
+  var instrucaoSql = `SELECT idFoto, caminhoFoto, fkCategoria FROM foto WHERE fkCategoria = 5`;
 
   return database.executar(instrucaoSql);
 }

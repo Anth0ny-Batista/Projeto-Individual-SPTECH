@@ -472,8 +472,9 @@ background-color: #FFE0C2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url('../assets/imgs/01.jpg');
+  background: url('../assets/imgs/c24.jpg');
   background-size: cover;
+  background-position: center; 
 
 }
 
@@ -483,8 +484,9 @@ background-color: #FFE0C2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url('../assets/imgs/01.jpg');
+  background: url('../assets/imgs/p25.jpg');
   background-size: cover;
+  background-position: center; 
 }
 
 .redPort a{
@@ -501,11 +503,12 @@ background-color: #FFE0C2;
   height: 100px;
 
   margin: 0;
-  color: var(--maronzin);
-  font-size: 60px;
+  letter-spacing: 5px;
+  color: var(--branco);
+  font-size: 80px;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  font-weight: 200;
+  font-weight: 180;
   font-style: normal;
 }
 
@@ -518,11 +521,12 @@ background-color: #FFE0C2;
   height: 100px;
 
   margin: 0;
-  color: var(--maronzin);
-  font-size: 60px;
+  letter-spacing: 5px;
+  color: var(--branco);
+  font-size: 80px;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  font-weight: 200;
+  font-weight: 180;
   font-style: normal;
 }
 
