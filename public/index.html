@@ -189,10 +189,22 @@
 
     var lista_fotos_JSON = [
       {
-        'url':'../assets/imgs/20230715_223832000_iOS.jpg'
+        'url':'../assets/imgs/i02.jpg'
       },
       {
-        'url':'./assets/imgs/03.jpg'
+        'url':'../assets/imgs/i03.jpg'
+      },
+      {
+        'url':'../assets/imgs/i04.jpg'
+      },
+      {
+        'url':'../assets/imgs/i05.jpg'
+      },
+      {
+        'url':'../assets/imgs/i06.jpg'
+      },
+      {
+        'url':'../assets/imgs/i07.jpg'
       }
   ]
 
@@ -200,7 +212,7 @@
  function trocarfotos(){
  var boxFotos = document.querySelector('.box1');
  var imgAnthony = boxFotos.querySelector('img');  
- imgAnthony.src = lista_fotos_JSON[0].url
+ imgAnthony.src = lista_fotos_JSON[5].url
      
    setInterval(() => {
      var aleatorio = Math.floor(Math.random() * lista_fotos_JSON.length);
