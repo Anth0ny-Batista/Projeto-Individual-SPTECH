@@ -23,7 +23,7 @@ function aleatorioCasamento() {
 
         }
         var k = 0;
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < 6; i++) {
           var fotoAleatoria = lista_fotos[lista_fotos_agora[k]].caminhoFoto;
 
           document.getElementById(`foto${i}`).src = `${fotoAleatoria}`;
@@ -64,7 +64,7 @@ function aleatorioPreWedding() {
 
         }
         var k = 0;
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < 6; i++) {
           var fotoAleatoria = lista_fotos1[lista_fotos_agora1[k]].caminhoFoto;
 
           document.getElementById(`foto1${i}`).src = `${fotoAleatoria}`;
@@ -241,7 +241,7 @@ var lista_fotos_agora5 = [];
 
 function listar() {
 
-  fetch("/fotos/aleatorioCasamento", {
+  fetch("/fotos/listar", {
     method: "GET",
   })
     .then(function (resposta) {
@@ -261,7 +261,7 @@ function listar() {
 
         }
         var k = 0;
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < 7; i++) {
           var fotoAleatoria = lista_fotos5[lista_fotos_agora5[k]].caminhoFoto;
 
           document.getElementById(`foto${i}`).src = `${fotoAleatoria}`;
